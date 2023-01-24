@@ -1,0 +1,27 @@
+﻿
+# top-most EditorConfig file
+root = true
+
+# Baseline
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = false
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+
+# MSBuild
+[*.{csproj,proj,projitems,shproj,fsproj,target,props}]
+indent_style = space
+indent_size = 2
+
+# XML config files
+[*.{config,nuspec,resx,natvis}]
+indent_style = space
+indent_size = 4
+
+# XAML files
+[*.xaml]
+indent_style = space
+indent_size = 4
