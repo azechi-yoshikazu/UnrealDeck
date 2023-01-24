@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeckCore\DeckCore.csproj">
+      <Project>{cda37af5-71c7-4edc-a1bd-98ce63425334}</Project>
+      <Name>DeckCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
