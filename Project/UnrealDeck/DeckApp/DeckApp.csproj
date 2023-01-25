@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA73B0A6-A1D2-4416-99C8-D894D87F4597}</ProjectGuid>
+    <ProjectGuid>{8B7ED0B3-BEB0-4074-BDE0-42147EA41D15}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DeckApp</RootNamespace>
     <AssemblyName>DeckApp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>8</LangVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -56,6 +56,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Application\Workspaces\WorkspaceService.cs" />
+    <Compile Include="StubInfraStructure\InMemoryWorkspaceRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,6 +66,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Domain\Workspaces\IWorkspaceRepository.cs" />
+    <Compile Include="Domain\Workspaces\Workspace.cs" />
+    <Compile Include="Domain\Workspaces\WorkspaceDirectory.cs" />
+    <Compile Include="Domain\Workspaces\WorkspaceID.cs" />
+    <Compile Include="Domain\Workspaces\WorkspaceService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -94,12 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DeckCore\DeckCore.csproj">
-      <Project>{cda37af5-71c7-4edc-a1bd-98ce63425334}</Project>
-      <Name>DeckCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

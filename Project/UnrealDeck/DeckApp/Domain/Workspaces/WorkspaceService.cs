@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeckCore.Domain.Workspaces
+namespace DeckApp.Domain.Workspaces
 {
     public class WorkspaceService
     {
