@@ -1,17 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Diagnostics;
+using DeckCore.Application.Workspaces;
 
 namespace DeckApp
 {
@@ -20,14 +9,37 @@ namespace DeckApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int incrementalID = 0;
+
+        private WorkspaceService service;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            service = new WorkspaceService(new DeckCore.StubInfraStructure.InMemoryWorkspaceRepository());
         }
 
         private void OnAddWorkspaceButtonClicked(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Add workspace");
+            Debug.WriteLine("Add workspace");
+            {
+                DeckCore.Domain.Workspaces.WorkspaceID ID = new DeckCore.Domain.Workspaces.WorkspaceID($"ID_{incrementalID}");
+                DeckCore.Domain.Workspaces.WorkspaceDirectory Directory = new DeckCore.Domain.Workspaces.WorkspaceDirectory($"Dir_{incrementalID}");
+                DeckCore.Domain.Workspaces.Workspace newWorkspace = new DeckCore.Domain.Workspaces.Workspace(ID, Directory);
+
+                var result = service.Create(newWorkspace);
+
+                if (result.Item1)
+                {
+                    foreach (var workspace in result.Item2)
+                    {
+                        Debug.WriteLine(workspace);
+                    }
+                }
+
+                incrementalID++;
+            }
         }
     }
 }
