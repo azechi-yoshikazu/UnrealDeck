@@ -1,7 +1,6 @@
 using System.Windows;
 using System.Diagnostics;
-using DeckApp.Domain;
-using DeckApp.Application;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DeckApp
 {
@@ -12,13 +11,16 @@ namespace DeckApp
     {
         private int incrementalID = 0;
 
-        private Application.Workspaces.WorkspaceService service;
+        private ServiceCollection services = new ServiceCollection();
+        private ServiceProvider serviceProvider;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            service = new Application.Workspaces.WorkspaceService(new StubInfraStructure.InMemoryWorkspaceRepository());
+            services.AddSingleton<Domain.Workspaces.IWorkspaceRepository, StubInfraStructure.InMemoryWorkspaceRepository>();
+            services.AddTransient<Application.Workspaces.WorkspaceService>();
+            serviceProvider = services.BuildServiceProvider();
         }
 
         private void OnAddWorkspaceButtonClicked(object sender, RoutedEventArgs e)
@@ -29,6 +31,7 @@ namespace DeckApp
                 Domain.Workspaces.WorkspaceDirectory Directory = new Domain.Workspaces.WorkspaceDirectory($"Dir_{incrementalID}");
                 Domain.Workspaces.Workspace newWorkspace = new Domain.Workspaces.Workspace(ID, Directory);
 
+                var service = serviceProvider.GetRequiredService<Application.Workspaces.WorkspaceService>();
                 var result = service.Create(newWorkspace);
 
                 if (result.Item1)
