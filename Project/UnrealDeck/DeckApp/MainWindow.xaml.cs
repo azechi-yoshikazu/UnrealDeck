@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,16 +12,13 @@ namespace DeckApp
     {
         private int incrementalID = 0;
 
-        private ServiceCollection services = new ServiceCollection();
-        private ServiceProvider serviceProvider;
+        private IServiceProvider serviceProvider;
 
-        public MainWindow()
+        public MainWindow(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
-            services.AddSingleton<Domain.Workspaces.IWorkspaceRepository, StubInfraStructure.InMemoryWorkspaceRepository>();
-            services.AddTransient<Application.Workspaces.WorkspaceService>();
-            serviceProvider = services.BuildServiceProvider();
+            this.serviceProvider = serviceProvider;
         }
 
         private void OnAddWorkspaceButtonClicked(object sender, RoutedEventArgs e)

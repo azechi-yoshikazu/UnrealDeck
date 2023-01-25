@@ -8,6 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DeckApp</RootNamespace>
     <AssemblyName>DeckApp</AssemblyName>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <LangVersion>8</LangVersion>
     <FileAlignment>512</FileAlignment>
