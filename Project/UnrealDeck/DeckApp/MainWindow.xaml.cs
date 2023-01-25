@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +23,11 @@ namespace DeckApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnAddWorkspaceButtonClicked(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Add workspace");
         }
     }
 }

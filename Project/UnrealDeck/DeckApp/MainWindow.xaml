@@ -13,6 +13,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="WorkspacePane" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="WorkspaceList"/>
+                <Button x:Name="AddWorkspaceButton" Content="New..." Grid.Row="1" Click="OnAddWorkspaceButtonClicked"/>
             </Grid>
             <Grid x:Name="CommandPane" Grid.Column="1">
             </Grid>
