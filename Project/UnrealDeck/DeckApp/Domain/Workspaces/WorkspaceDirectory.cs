@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeckCore.Domain.Workspaces
+namespace DeckApp.Domain.Workspaces
 {
-    public class WorkspaceID : IEquatable<WorkspaceID>
+    public class WorkspaceDirectory : IEquatable<WorkspaceDirectory>
     {
         public string Value { get; }
 
-        public WorkspaceID(string inValue)
+        public WorkspaceDirectory(string inValue)
         {
             Value = inValue;
         }
 
-        public bool Equals(WorkspaceID other)
+        public bool Equals(WorkspaceDirectory other)
         {
             return Value == other.Value;
         }

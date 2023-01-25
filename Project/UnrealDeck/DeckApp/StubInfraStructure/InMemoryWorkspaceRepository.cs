@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DeckCore.Domain.Workspaces;
+using DeckApp.Domain.Workspaces;
 
-namespace DeckCore.StubInfraStructure
+namespace DeckApp.StubInfraStructure
 {
     public class InMemoryWorkspaceRepository : IWorkspaceRepository
     {
