@@ -12,16 +12,19 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="WorkspacePane" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <StackPanel x:Name="WorkspaceList"/>
-                <Button x:Name="AddWorkspaceButton" Content="New..." Grid.Row="1" Click="OnAddWorkspaceButtonClicked"/>
-            </Grid>
-            <Grid x:Name="CommandPane" Grid.Column="1">
-            </Grid>
+            <Border x:Name="WorkspacePane" BorderThickness="0" Background="#FF484848">
+                <Grid x:Name="WorkspacePaneGrid" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="WorkspaceList"/>
+                    <Button x:Name="AddWorkspaceButton" Content="New..." Grid.Row="1" Click="OnAddWorkspaceButtonClicked" Margin="100,50"/>
+                </Grid>
+            </Border>
+            <Border x:Name="CommandPane" BorderThickness="0" Grid.Column="1" Background="#FF2A2A2A">
+                <Grid x:Name="CommandPaneGrid" Margin="0"/>
+            </Border>
         </Grid>
     </Grid>
 </Window>
