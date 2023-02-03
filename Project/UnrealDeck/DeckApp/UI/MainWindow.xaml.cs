@@ -2,7 +2,7 @@ using System.Windows;
 using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DeckApp
+namespace DeckApp.UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

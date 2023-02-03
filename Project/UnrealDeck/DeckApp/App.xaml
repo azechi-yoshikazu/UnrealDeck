@@ -1,8 +1,8 @@
-﻿<Application x:Class="DeckApp.App"
+<Application x:Class="DeckApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DeckApp"
-             StartupUri="MainWindow.xaml">
+             StartupUri="UI/MainWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
