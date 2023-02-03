@@ -13,13 +13,19 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Border x:Name="WorkspacePane" BorderThickness="0" Background="#FF484848">
-                <Grid x:Name="WorkspacePaneGrid" Margin="0">
+                <Grid x:Name="WorkspacePaneGrid"  Margin="100,0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <StackPanel x:Name="WorkspaceList"/>
-                    <Button x:Name="AddWorkspaceButton" Content="New..." Grid.Row="1" Click="OnAddWorkspaceButtonClicked" Margin="100,50"/>
+                    <ItemsControl ItemsSource="{Binding Workspaces}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding ID}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Button x:Name="AddWorkspaceButton" Content="New..." Grid.Row="1"  Margin="0,50" Click="OnAddWorkspaceButtonClicked"/>
                 </Grid>
             </Border>
             <Border x:Name="CommandPane" BorderThickness="0" Grid.Column="1" Background="#FF2A2A2A">

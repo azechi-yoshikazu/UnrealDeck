@@ -31,6 +31,9 @@ namespace DeckApp
 
             collection.AddSingleton<Domain.Workspaces.IWorkspaceRepository, StubInfraStructure.InMemoryWorkspaceRepository>();
             collection.AddSingleton<Application.Workspaces.WorkspaceService>();
+
+            collection.AddTransient<UI.MainViewModel>();
+
             return collection.BuildServiceProvider();
         }
     }

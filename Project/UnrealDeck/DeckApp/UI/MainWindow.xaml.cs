@@ -13,6 +13,7 @@ namespace DeckApp.UI
         {
             InitializeComponent();
 
+            DataContext = App.Current.Services.GetService<MainViewModel>();
         }
 
         private void OnAddWorkspaceButtonClicked(object sender, RoutedEventArgs e)
